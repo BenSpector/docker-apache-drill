@@ -7,7 +7,7 @@ ENV DRILL_VERSION=1.13.0 \
   MONGO_URL=mongodb://falkonry-mongo:27017/
 
 RUN mkdir -p /opt/drill && \
-	curl -o apache-drill-${DRILL_VERSION}.tar.gz http://www.eu.apache.org/dist/drill/drill-${DRILL_VERSION}/apache-drill-${DRILL_VERSION}.tar.gz && \
+	curl -o apache-drill-${DRILL_VERSION}.tar.gz https://storage.googleapis.com/falkonry-3rdparty-resources/drill/apache-drill-1.13.0-SNAPSHOT.tar.gz && \
   tar -zxpf apache-drill-${DRILL_VERSION}.tar.gz -C /opt/drill && \
   rm apache-drill-${DRILL_VERSION}.tar.gz
 
