@@ -47,4 +47,11 @@ java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_M
 	-XX:ReservedCodeCacheSize=$DRILLBIT_CODE_CACHE_SIZE -Ddrill.exec.enable-epoll=false \
 	-XX:MaxPermSize=$DRILLBIT_MAX_PERM -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC \
 	-cp $CP \
+	-Dcom.sun.management.jmxremote \
+	-Dcom.sun.management.jmxremote.port=3000 \
+	-Dcom.sun.management.jmxremote.rmi.port=3001 \
+	-Dcom.sun.management.jmxremote.ssl=false \
+	-Dcom.sun.management.jmxremote.local.only=false \
+	-Dcom.sun.management.jmxremote.authenticate=false \
+	-Djava.rmi.server.hostname=0.0.0.0 \
 	org.apache.drill.exec.server.Drillbit
