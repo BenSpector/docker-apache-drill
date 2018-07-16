@@ -20,4 +20,4 @@ ADD logback.xml /opt/drill/apache-drill-${DRILL_VERSION}/conf
 
 ENTRYPOINT /opt/drill/apache-drill-${DRILL_VERSION}/bin/start.sh
 
-EXPOSE 8047 31010
+EXPOSE 8047 31010 3000
