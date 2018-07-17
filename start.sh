@@ -43,6 +43,7 @@ sed -i -e "s/MONGO_URL/$MONGO/" /mongo.config
 #updating storage and sys config
 ${DRILL_HOME}/bin/update.sh &
 
+local hn=`hostname -i`
 java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_MEMORY \
 	-XX:ReservedCodeCacheSize=$DRILLBIT_CODE_CACHE_SIZE -Ddrill.exec.enable-epoll=false \
 	-XX:MaxPermSize=$DRILLBIT_MAX_PERM -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC \
@@ -53,5 +54,5 @@ java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_M
 	-Dcom.sun.management.jmxremote.ssl=false \
 	-Dcom.sun.management.jmxremote.local.only=false \
 	-Dcom.sun.management.jmxremote.authenticate=false \
-	-Djava.rmi.server.hostname=0.0.0.0 \
+	-Djava.rmi.server.hostname=$hn \
 	org.apache.drill.exec.server.Drillbit
