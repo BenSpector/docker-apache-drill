@@ -49,9 +49,9 @@ java -Xms$DRILL_HEAP -Xmx$DRILL_HEAP -XX:MaxDirectMemorySize=$DRILL_MAX_DIRECT_M
 	-cp $CP \
 	-Dcom.sun.management.jmxremote \
 	-Dcom.sun.management.jmxremote.port=3000 \
-	-Dcom.sun.management.jmxremote.rmi.port=3001 \
+	-Dcom.sun.management.jmxremote.rmi.port=3000 \
 	-Dcom.sun.management.jmxremote.ssl=false \
 	-Dcom.sun.management.jmxremote.local.only=false \
 	-Dcom.sun.management.jmxremote.authenticate=false \
-	-Djava.rmi.server.hostname="${DRILL_HOST_NAME}" \
+	-Djava.rmi.server.hostname=127.0.0.1 \
 	org.apache.drill.exec.server.Drillbit
